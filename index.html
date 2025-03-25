@@ -1,88 +1,191 @@
-<h1>PostgreSQL Data Types (Plain Text)</h1>     
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL Data Types</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-<p>
-**Numeric Types**
------------------
-- smallint (int2)         : Stores small integers (-32,768 to 32,767).
-- integer (int4)          : Stores standard integers (-2,147,483,648 to 2,147,483,647).
-- bigint (int8)           : Stores large integers (-9 quintillion to 9 quintillion).
-- decimal(p,s) / numeric(p,s) : Exact numeric type with precision (p) and scale (s).
-- real (float4)           : 4-byte floating-point number (approximate precision).
-- double precision (float8) : 8-byte floating-point number (higher precision).
-- serial                 : Auto-incrementing integer (uses `integer`).
-- bigserial              : Auto-incrementing big integer (uses `bigint`).
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
 
-**Character Types**
--------------------
-- char(n)                : Fixed-length character string.
-- varchar(n)             : Variable-length character string (up to `n` characters).
-- text                   : Variable-length character string (unlimited size).
+        .sidebar {
+            width: 250px;
+            background: #333;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
 
-**Boolean Type**
-----------------
-- boolean                : Stores `TRUE`, `FALSE`, or `NULL`.
+        .sidebar h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 2px solid #555;
+            padding-bottom: 10px;
+        }
 
-**Date/Time Types**
--------------------
-- date                   : Stores date (year, month, day).
-- time                   : Stores time of day (hour, minute, second).
-- time with time zone    : Stores time with time zone.
-- timestamp              : Stores date and time.
-- timestamp with time zone : Stores date and time with time zone.
-- interval               : Stores a time span (e.g., `1 year 2 months`).
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background: #444;
+            transition: background 0.3s;
+        }
 
-**UUID Type**
--------------
-- uuid                   : Stores universally unique identifiers (UUID).
+        .sidebar a:hover {
+            background: #555;
+        }
 
-**JSON Types**
---------------
-- json                   : Stores JSON data as text (no validation).
-- jsonb                  : Stores JSON data in a binary format (faster, supports indexing).
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
 
-**Array Types**
----------------
-- datatype[]             : Stores an array of elements (e.g., `integer[]`).
+        .category {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-**HStore Type**
----------------
-- hstore                 : Stores key-value pairs (like a simple NoSQL structure).
+        .category h3 {
+            cursor: pointer;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-**Geometric Types**
--------------------
-- point                  : Stores a geometric point `(x, y)`.
-- line                   : Stores an infinite line.
-- lseg                   : Stores a line segment.
-- box                    : Stores a rectangular box.
-- path                   : Stores a geometric path.
-- polygon                : Stores a polygon.
-- circle                 : Stores a geometric circle.
+        .category h3 span {
+            font-size: 18px;
+        }
 
-**Network Types**
------------------
-- cidr                   : Stores IPv4 or IPv6 network.
-- inet                   : Stores IP address.
-- macaddr                : Stores MAC address.
+        .category ul {
+            list-style: none;
+            padding: 10px;
+            display: none;
+        }
 
-**Bit String Types**
---------------------
-- bit(n)                 : Stores fixed-length bit string.
-- bit varying(n)         : Stores variable-length bit string.
+        .category ul li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
 
-**XML Type**
-------------
-- xml                    : Stores XML data.
+        .category ul li:last-child {
+            border-bottom: none;
+        }
 
-**Range Types**
----------------
-- int4range              : Range of integers.
-- numrange               : Range of numeric values.
-- tsrange                : Range of timestamps.
-- tstzrange              : Range of timestamps with time zones.
-- daterange              : Range of dates.
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
 
-**Monetary Type**
------------------
-- money                  : Stores currency values with currency symbols.
+    <div class="sidebar">
+        <h2>PostgreSQL Data Types</h2>
+        <a href="#numeric">Numeric Types</a>
+        <a href="#character">Character Types</a>
+        <a href="#boolean">Boolean Type</a>
+        <a href="#datetime">Date/Time Types</a>
+        <a href="#uuid">UUID Type</a>
+        <a href="#json">JSON Types</a>
+        <a href="#array">Array Types</a>
+        <a href="#hstore">HStore Type</a>
+        <a href="#geometric">Geometric Types</a>
+        <a href="#network">Network Types</a>
+        <a href="#bitstring">Bit String Types</a>
+        <a href="#xml">XML Type</a>
+        <a href="#range">Range Types</a>
+        <a href="#monetary">Monetary Type</a>
+    </div>
 
-</p>
+    <div class="content">
+        <div class="category" id="numeric">
+            <h3>Numeric Types <span>+</span></h3>
+            <ul>
+                <li><strong>smallint:</strong> Stores small integers (-32,768 to 32,767).</li>
+                <li><strong>integer:</strong> Stores standard integers (-2,147,483,648 to 2,147,483,647).</li>
+                <li><strong>bigint:</strong> Stores large integers (-9 quintillion to 9 quintillion).</li>
+                <li><strong>decimal/numeric:</strong> Exact numeric type with precision.</li>
+                <li><strong>real:</strong> 4-byte floating-point number.</li>
+                <li><strong>double precision:</strong> 8-byte floating-point number.</li>
+                <li><strong>serial:</strong> Auto-incrementing integer.</li>
+                <li><strong>bigserial:</strong> Auto-incrementing big integer.</li>
+            </ul>
+        </div>
+
+        <div class="category" id="character">
+            <h3>Character Types <span>+</span></h3>
+            <ul>
+                <li><strong>char(n):</strong> Fixed-length character string.</li>
+                <li><strong>varchar(n):</strong> Variable-length character string.</li>
+                <li><strong>text:</strong> Variable-length character string (unlimited).</li>
+            </ul>
+        </div>
+
+        <div class="category" id="boolean">
+            <h3>Boolean Type <span>+</span></h3>
+            <ul>
+                <li><strong>boolean:</strong> Stores `TRUE`, `FALSE`, or `NULL`.</li>
+            </ul>
+        </div>
+
+        <div class="category" id="datetime">
+            <h3>Date/Time Types <span>+</span></h3>
+            <ul>
+                <li><strong>date:</strong> Stores date (year, month, day).</li>
+                <li><strong>timestamp:</strong> Stores date and time.</li>
+                <li><strong>interval:</strong> Stores a time span.</li>
+            </ul>
+        </div>
+
+        <div class="category" id="uuid">
+            <h3>UUID Type <span>+</span></h3>
+            <ul>
+                <li><strong>uuid:</strong> Stores universally unique identifiers.</li>
+            </ul>
+        </div>
+
+        <!-- Add other sections in similar format -->
+    </div>
+
+    <script>
+        document.querySelectorAll('.category h3').forEach(header => {
+            header.addEventListener('click', function () {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('span');
+                
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                    icon.textContent = "+";
+                } else {
+                    content.style.display = "block";
+                    icon.textContent = "-";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
