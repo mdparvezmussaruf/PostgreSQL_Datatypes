@@ -4,188 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PostgreSQL Data Types</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            display: flex;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-
-        .sidebar {
-            width: 250px;
-            background: #333;
-            color: white;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .sidebar h2 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            text-align: center;
-            border-bottom: 2px solid #555;
-            padding-bottom: 10px;
-        }
-
-        .sidebar a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            background: #444;
-            transition: background 0.3s;
-        }
-
-        .sidebar a:hover {
-            background: #555;
-        }
-
-        .content {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .category {
-            background: white;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .category h3 {
-            cursor: pointer;
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .category h3 span {
-            font-size: 18px;
-        }
-
-        .category ul {
-            list-style: none;
-            padding: 10px;
-            display: none;
-        }
-
-        .category ul li {
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .category ul li:last-child {
-            border-bottom: none;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="sidebar">
-        <h2>PostgreSQL Data Types</h2>
-        <a href="#numeric">Numeric Types</a>
-        <a href="#character">Character Types</a>
-        <a href="#boolean">Boolean Type</a>
-        <a href="#datetime">Date/Time Types</a>
-        <a href="#uuid">UUID Type</a>
-        <a href="#json">JSON Types</a>
-        <a href="#array">Array Types</a>
-        <a href="#hstore">HStore Type</a>
-        <a href="#geometric">Geometric Types</a>
-        <a href="#network">Network Types</a>
-        <a href="#bitstring">Bit String Types</a>
-        <a href="#xml">XML Type</a>
-        <a href="#range">Range Types</a>
-        <a href="#monetary">Monetary Type</a>
+    <div class="main-container">
+        <div class="sidebar">
+            <h2>PostgreSQL Data Types</h2>
+            <a href="#numeric">Numeric Types</a>
+            <a href="#character">Character Types</a>
+            <a href="#boolean">Boolean Type</a>
+            <a href="#datetime">Date/Time Types</a>
+            <a href="#uuid">UUID Type</a>
+            <a href="#json">JSON Types</a>
+            <a href="#array">Array Types</a>
+            <a href="#hstore">HStore Type</a>
+            <a href="#geometric">Geometric Types</a>
+            <a href="#network">Network Types</a>
+            <a href="#bitstring">Bit String Types</a>
+            <a href="#xml">XML Type</a>
+            <a href="#range">Range Types</a>
+            <a href="#monetary">Monetary Type</a>
+        </div>
+
+        <div class="content">
+            <div class="category" id="numeric">
+                <h3>Numeric Types <span>+</span></h3>
+                <ul>
+                    <li><strong>smallint (int2):</strong> Stores small integers (-32,768 to 32,767).</li>
+                    <li><strong>integer (int4):</strong> Stores standard integers (-2,147,483,648 to 2,147,483,647).</li>
+                    <li><strong>bigint (int8) :</strong> Stores large integers (-9 quintillion to 9 quintillion).</li>
+                    <li><strong>decimal (p,s)/numeric (p,s):</strong> Exact numeric type with precision (p) and scale (s).</li>
+                    <li><strong>real (float4):</strong> 4-byte floating-point number (approximate precision).</li>
+                    <li><strong>double precision (float8):</strong> 8-byte floating-point number (higher precision).</li>
+                    <li><strong>serial:</strong> Auto-incrementing integer (uses `integer`).</li>
+                    <li><strong>bigserial:</strong> Auto-incrementing big integer (uses `bigint`).</li>
+                </ul>
+            </div>
+
+            <div class="category" id="character">
+                <h3>Character Types <span>+</span></h3>
+                <ul>
+                    <li><strong>char(n):</strong> Fixed-length character string.</li>
+                    <li><strong>varchar(n):</strong> Variable-length character string (up to `n` characters).</li>
+                    <li><strong>text:</strong> Variable-length character string (unlimited).</li>
+                </ul>
+            </div>
+
+            <div class="category" id="boolean">
+                <h3>Boolean Type <span>+</span></h3>
+                <ul>
+                    <li><strong>boolean:</strong> Stores `TRUE`, `FALSE`, or `NULL`.</li>
+                </ul>
+            </div>
+
+            <div class="category" id="datetime">
+                <h3>Date/Time Types <span>+</span></h3>
+                <ul>
+                    <li><strong>date:</strong> Stores date (year, month, day).</li>
+                    <li><strong>time:</strong> Stores time of day (hour, minute, second).</li>
+                    <li><strong>time with time zone :</strong> Stores time with time zone.</li>
+                    <li><strong>timestamp:</strong> Stores date and time.</li>
+                    <li><strong>interval:</strong> Stores a time span (e.g., `1 year 2 months`).</li>
+                    <li><strong>timestamp with time zone:</strong> Stores date and time with time zone.</li>
+                </ul>
+            </div>
+
+            <div class="category" id="uuid">
+                <h3>UUID Type <span>+</span></h3>
+                <ul>
+                    <li><strong>uuid:</strong> Stores universally unique identifiers (UUID).</li>
+                </ul>
+            </div>
+
+            <div class="category" id="JSON">
+                <h3>JSON Types <span>+</span></h3>
+                <ul>
+                    <li><strong>json :</strong>Stores JSON data as text (no validation).</li>
+                    <li><strong>jsonb :</strong>Stores JSON data in a binary format (faster, supports indexing).</li>
+                </ul>
+            </div>
+
+            <div class="category" id="Array">
+                <h3>Array Types<span>+</span></h3>
+                <ul>
+                    <li><strong>datatype[] :</strong> Stores an array of elements (e.g., `integer[]`).</li>
+                </ul>
+            </div>
+
+            <div class="category" id="HStore">
+                <h3>HStore Type<span>+</span></h3>
+                <ul>
+                    <li><strong>hstore :</strong> Stores key-value pairs (like a simple NoSQL structure).</li>
+                </ul>
+            </div>
+
+            <div class="category" id="Geometric">
+                <h3>Geometric Types<span>+</span></h3>
+                <ul>
+                    <li><strong>point :</strong> Stores a geometric point `(x, y)`.</li>
+                    <li><strong>line :</strong> Stores an infinite line.</li>
+                    <li><strong>lseg :</strong> Stores a line segment.</li>
+                    <li><strong>box :</strong> Stores a rectangular box.</li>
+                    <li><strong>path :</strong> Stores a geometric path.</li>
+                    <li><strong>polygon :</strong> Stores a polygon.</li>
+                    <li><strong>circle :</strong> Stores a geometric circle.</li>
+                </ul>
+            </div>
+
+            <div class="category" id="Network">
+                <h3>Network Types<span>+</span></h3>
+                <ul>
+                    <li><strong>cidr :</strong>Stores IPv4 or IPv6 network.</li>
+                    <li><strong>inet :</strong>Stores IP address.</li>
+                    <li><strong>macaddr :</strong>Stores MAC address.</li>
+                </ul>
+            </div>
+
+            <div class="category" id="BitString">
+                <h3>Bit String Types<span>+</span></h3>
+                <ul>
+                    <li><strong>bit(n) :</strong>Stores fixed-length bit string.</li>
+                    <li><strong>bit varying(n) :</strong>Stores variable-length bit string.</li>
+                </ul>
+            </div>
+
+            <div class="category" id="XML">
+                <h3>XML Type<span>+</span></h3>
+                <ul>
+                    <li><strong>xml :</strong>Stores XML data.</li>
+                </ul>
+            </div>
+
+            <div class="category" id="Range">
+                <h3>Range Types<span>+</span></h3>
+                <ul>
+                    <li><strong>int4range  :</strong>Range of integers.</li>
+                    <li><strong>numrange :</strong>Range of numeric values.</li>
+                    <li><strong>tsrange :</strong>Range of timestamps. </li>
+                    <li><strong>tstzrange :</strong>Range of timestamps with time zones.</li>
+                    <li><strong>daterange :</strong>Range of dates.</li>
+                </ul>
+            </div>
+
+            <div class="category" id="Monetary">
+                <h3>Monetary Type<span>+</span></h3>
+                <ul>
+                    <li><strong>money :</strong>Stores currency values with currency symbols.</li>
+                </ul>
+            </div>
+
+            
+
+        </div>
     </div>
 
-    <div class="content">
-        <div class="category" id="numeric">
-            <h3>Numeric Types <span>+</span></h3>
-            <ul>
-                <li><strong>smallint:</strong> Stores small integers (-32,768 to 32,767).</li>
-                <li><strong>integer:</strong> Stores standard integers (-2,147,483,648 to 2,147,483,647).</li>
-                <li><strong>bigint:</strong> Stores large integers (-9 quintillion to 9 quintillion).</li>
-                <li><strong>decimal/numeric:</strong> Exact numeric type with precision.</li>
-                <li><strong>real:</strong> 4-byte floating-point number.</li>
-                <li><strong>double precision:</strong> 8-byte floating-point number.</li>
-                <li><strong>serial:</strong> Auto-incrementing integer.</li>
-                <li><strong>bigserial:</strong> Auto-incrementing big integer.</li>
-            </ul>
-        </div>
-
-        <div class="category" id="character">
-            <h3>Character Types <span>+</span></h3>
-            <ul>
-                <li><strong>char(n):</strong> Fixed-length character string.</li>
-                <li><strong>varchar(n):</strong> Variable-length character string.</li>
-                <li><strong>text:</strong> Variable-length character string (unlimited).</li>
-            </ul>
-        </div>
-
-        <div class="category" id="boolean">
-            <h3>Boolean Type <span>+</span></h3>
-            <ul>
-                <li><strong>boolean:</strong> Stores `TRUE`, `FALSE`, or `NULL`.</li>
-            </ul>
-        </div>
-
-        <div class="category" id="datetime">
-            <h3>Date/Time Types <span>+</span></h3>
-            <ul>
-                <li><strong>date:</strong> Stores date (year, month, day).</li>
-                <li><strong>timestamp:</strong> Stores date and time.</li>
-                <li><strong>interval:</strong> Stores a time span.</li>
-            </ul>
-        </div>
-
-        <div class="category" id="uuid">
-            <h3>UUID Type <span>+</span></h3>
-            <ul>
-                <li><strong>uuid:</strong> Stores universally unique identifiers.</li>
-            </ul>
-        </div>
-
-        <!-- Add other sections in similar format -->
+    <div class="footer">
+        &copy; <span id="year"></span> PostgreSQL Reference |  
+        <a href="https://www.postgresql.org/docs/" target="_blank">Official Docs</a>
     </div>
 
-    <script>
-        document.querySelectorAll('.category h3').forEach(header => {
-            header.addEventListener('click', function () {
-                const content = this.nextElementSibling;
-                const icon = this.querySelector('span');
-                
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                    icon.textContent = "+";
-                } else {
-                    content.style.display = "block";
-                    icon.textContent = "-";
-                }
-            });
-        });
-    </script>
+<script src="index.js"></script>
 
 </body>
 </html>
