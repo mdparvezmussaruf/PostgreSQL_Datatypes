@@ -5,6 +5,16 @@
     font-family: Arial, sans-serif;
 }
 
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(to right, antiquewhite, white);
+    color: #067eff;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
 body {
     display: flex;
     flex-direction: column;
