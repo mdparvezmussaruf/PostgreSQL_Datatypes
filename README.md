@@ -1,7 +1,5 @@
 
-
-```
-# PostgreSQL Data Types Reference
+## PostgreSQL Data Types Reference
 
 This is an interactive web-based reference for PostgreSQL data types, providing a categorized list of supported data types along with their descriptions.
 
@@ -18,6 +16,7 @@ This is an interactive web-based reference for PostgreSQL data types, providing 
 - **HTML** – Structure of the web page.
 - **CSS** – Styling and layout.
 - **JavaScript** – Interactive features like collapsible sections and smooth scrolling.
+  
 ```
 ## 📁 Project Structure
 
