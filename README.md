@@ -16,10 +16,9 @@ This is an interactive web-based reference for PostgreSQL data types, providing 
 - **HTML** – Structure of the web page.
 - **CSS** – Styling and layout.
 - **JavaScript** – Interactive features like collapsible sections and smooth scrolling.
-  
-```
-## 📁 Project Structure
 
+## 📁 Project Structure
+```
 PostgreSQL_Datatypes/
 │── index.html     # Main HTML file
 │── styles.css     # Stylesheet for design
@@ -49,8 +48,7 @@ Feel free to fork this repository, improve the content, and submit a pull reques
 ## 📜 License
 This project is licensed under the **MIT License** – you are free to modify and use it.
 
----
 
 📧 **Author:** [Md Parvez Mussaruf](https://github.com/mdparvezmussaruf)  
 💡 **Feedback & Suggestions?** Open an issue or reach out!
-```
+
