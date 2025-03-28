@@ -25,7 +25,7 @@ PostgreSQL_Datatypes/
 │── index.html     # Main HTML file
 │── styles.css     # Stylesheet for design
 │── index.js       # JavaScript for interactive elements
-└── README.md      # Project documentation
+│── README.md      # Project documentation
 ```
 
 ## 🛠 How to Run Locally
