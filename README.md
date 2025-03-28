@@ -18,9 +18,9 @@ This is an interactive web-based reference for PostgreSQL data types, providing 
 - **HTML** – Structure of the web page.
 - **CSS** – Styling and layout.
 - **JavaScript** – Interactive features like collapsible sections and smooth scrolling.
-
-## 📁 Project Structure
 ```
+## 📁 Project Structure
+
 PostgreSQL_Datatypes/
 │── index.html     # Main HTML file
 │── styles.css     # Stylesheet for design
