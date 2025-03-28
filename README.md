@@ -49,6 +49,6 @@ Feel free to fork this repository, improve the content, and submit a pull reques
 This project is licensed under the **MIT License** – you are free to modify and use it.
 
 
-📧 **Author:** [Md Parvez Mussaruf]([https://github.com/mdparvezmussaruf](https://mdparvezmussaruf.github.io/myPortfolio/))  
+📧 **Author:**   [MD Parvez Mussaruf](https://mdparvezmussaruf.github.io/myPortfolio/)
 💡 **Feedback & Suggestions?** Open an issue or reach out!
 
